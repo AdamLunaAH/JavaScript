@@ -44,7 +44,7 @@ console.log(stringTest, typeof stringTest);
 console.log(numberTest,typeof numberTest);
 
 // And you can mix crazily and js tries to make type conversion convert to string (most cases) or Number
-stringTest = 42 + 42 + '42' + 42 + booleanTest;  
+stringTest = 42 + 42 + '42' + 42 + booleanTest;
 console.log(stringTest); // 844242true;
 
 
@@ -55,13 +55,13 @@ console.log(a == undefined);
 
 console.groupEnd();
 console.group('TESTING FOR EQUALITY');
-// non-strict equality operator: == != test for eqality after type conversions and returns a Boolean result. 
+// non-strict equality operator: == != test for eqality after type conversions and returns a Boolean result.
 // Unlike the strict equality operator, it attempts to convert and compare operands that are of different types.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality
 
 // strict equality operator: === and !== the strict equality operator always considers operands of different types to be different.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality
-// almost ALWAYS use === and !== 
+// almost ALWAYS use === and !==
 
 console.log('null and undefined');
 console.log (nullTest == undefinedTest);  // true - in nonstrict equality null equals undefined
@@ -104,11 +104,11 @@ console.log (name2 === name3);   //true
 console.log('object value equality');
 const s1 = JSON.stringify(name1);
 const s2 = JSON.stringify(name2);
-console.log(s1 === s2); 
+console.log(s1 === s2);
 
 //Using a function to test  Equality
 name1.phone = '123';  //adding a property for test
-console.log(isEqual(name1, name2)); 
+console.log(isEqual(name1, name2));
 
 
 //For now, simply base value Equality on the objects string representation using JSON.stringify()
@@ -128,3 +128,32 @@ function isEqual(obj1, obj2) {
 4. create a couple of objects with properterties and test equality (value and referential)
 
 */
+
+let abc = 5;
+console.log(abc);
+abc = 5 + 8;
+console.log(abc);
+abc = 5 + 8 + '15';
+console.log(abc);
+abc = 5 + 8 + '15' + {};
+console.log(abc);
+abc = '';
+console.log(" '' " + abc);
+abc = "";
+console.log(' "" ' + abc);
+abc = ``;
+console.log(" ´´ " + abc);
+
+
+let str = "1" + "3".repeat(20);
+console.log(str);
+
+let str2 = "hello";
+str2 = "50" + str2 + "50";
+console.log(str2);
+
+let obj1 = {name: "Jane", age: 25};
+let obj2 = {name: "Jane", age: 25};
+console.log(obj1 == obj2);
+console.log(obj1 === obj2);
+console.log(isEqual(obj1, obj2));
