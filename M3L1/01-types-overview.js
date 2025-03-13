@@ -152,6 +152,9 @@ let str2 = "hello";
 str2 = "50" + str2 + "50";
 console.log(str2);
 
+let str3 = "*".repeat(10) + "hello" + "*".repeat(10);
+console.log(str3);
+
 let obj1 = {name: "Jane", age: 25};
 let obj2 = {name: "Jane", age: 25};
 console.log(obj1 == obj2);
