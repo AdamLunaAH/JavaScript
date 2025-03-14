@@ -19,7 +19,7 @@ const scientificString = someNumber.toExponential(2);
 // scientificString = '1.24e+3'
 console.log(`${someNumber} with toExponential(2) is ${scientificString}`);
 
-
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 let formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 let moneyString = formatter.format(someNumber);
 
@@ -30,3 +30,8 @@ console.log(`${someNumber} with a U.S. currency formatted is ${moneyString}`);
 /* Exercises
 1. Explore Intl.NumberFormat documentation and write {someNumber} in swedish kronor. Format is 'sv''
 */
+
+let sekFormatter = new Intl.NumberFormat("sv-SE", {style: "currency", currency: "SEK"});
+let sekMoneyString = sekFormatter.format(someNumber);
+
+console.log(`${someNumber} with a Swedish currency formatted is ${sekMoneyString}`);
