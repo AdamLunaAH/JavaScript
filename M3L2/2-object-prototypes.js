@@ -9,6 +9,8 @@ console.log(o1);
 
 //an prop with same name as prototype prop will take precedence
 _proto.prop1 = "new prot value";
+console.log(o1.prop1);
+
 o1.prop1 = "o1 prop1";
 o1.prop2 = "o1 prop2";
 console.log(o1.prop1);
@@ -34,12 +36,14 @@ let o = {greeting:'hello'};
 _proto = Object.getPrototypeOf(o);
 
 console.log(_proto);            //Object literals {} has Object as prototype, inherited properties and functions from Object
+console.log(o)
 console.log(o.toString());      //Object has toString() defined for example
 
 //now I assign my own toString directly to object
 o.toString = function () { return `${this.greeting}`; };
 console.log(o);                 //o is still written out as an object
-console.log(o.toString);             //See the trick here, forcing o to use toString()
+console.log(o.toString());             
+console.log('' + o);             //See the trick here, forcing o to use toString()
 
 //I can change toString() of the prototype object without affecting the child
 _proto.toString = function () { return `${this.greeting}`; };
@@ -55,6 +59,7 @@ let obj1 = Object.create(_proto);    //obj1 now has _proto as prototype
 let obj2 = Object.create(_proto);    //obj1 now has _proto as prototype
 
 console.log(obj1.prot_prop1, obj1.prot_prop2);  //And the properties are inherited
+console.log(obj2.prot_prop1, obj2.prot_prop2);  //And the properties are inherited
 console.log(obj1);                              //But not visible when you write the object
 console.log(_proto);              //Only when showing prototype
 
